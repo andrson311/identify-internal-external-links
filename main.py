@@ -93,7 +93,6 @@ def fetch_links_dataframe(sitemap_url):
     
 if __name__ == '__main__':
     url = 'https://ak-codes.com/post-sitemap.xml'
-    
     df = fetch_links_dataframe(url)
 
     # find only internal links
@@ -108,7 +107,7 @@ if __name__ == '__main__':
     print('Number of total external links:', df_external['url'].count())
     print('Number of unique external links:', df_external['url'].nunique())
 
-    # find pages without any links
+    # find pages without any internal links
     df_no_links = df[df['internal'].isnull()]
     print(df_no_links.head(20))
     print('Number of pages without any links:', df_no_links['url'].nunique())
